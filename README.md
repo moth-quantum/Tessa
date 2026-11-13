@@ -198,10 +198,9 @@ files (`IQPIXL_IBM_INSTANCE`), still carry that name.
 
 ## Licence
 
-The code is released under the MIT licence ([LICENSE](LICENSE)). The licence covers the
-code only: the pixel art, genetic sequences and MIDI files in `data/` and `results/`
+Pixel art, genetic sequences and MIDI files in `data/` and `results/`
 keep their own terms. The third-party pixel art is included with the artists'
-permission for reproducing the paper and is not covered by the MIT licence. See
+permission for reproducing the paper and is not covered by any potential licence. See
 [CREDITS.md](CREDITS.md).
 
 ## Citation
