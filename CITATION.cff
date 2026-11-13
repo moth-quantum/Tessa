@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the paper below."
+title: "Tessa: Encoding Classical Data Across an Entire Quantum Processor (code and data)"
+version: 1.0.0
+license: MIT
+type: software
+authors:
+  - family-names: Bultrini
+    given-names: Daniel
+    affiliation: Moth Quantum
+    email: daniel@mothquantum.com
+keywords:
+  - quantum computing
+  - data encoding
+  - QPIXL
+  - QCrank
+  - IBM Quantum
+preferred-citation:
+  type: article
+  title: "Tessa: Encoding Classical Data Across an Entire Quantum Processor"
+  authors:
+    - family-names: Bultrini
+      given-names: Daniel
+      affiliation: Moth Quantum
+  year: 2026

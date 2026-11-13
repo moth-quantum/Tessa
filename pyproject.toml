@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tessa-paper"
+version = "1.0.0"
+description = "Tessa (tessellated QPIXL): hardware-native data encoding on quantum computers. Library and reproduction code for the paper."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Daniel Bultrini", email = "daniel@mothquantum.com" }]
+keywords = ["quantum", "qiskit", "qpixl", "qcrank", "angle-encoding", "heavy-hex"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "numpy>=1.24",
+    "qiskit>=2.5.1",
+    "qiskit-aer>=0.17.2",
+    "matplotlib>=3.8",
+    "pillow>=10",
+]
+
+[project.optional-dependencies]
+# Real-hardware submission, reading stored IBM job results, and the fake-provider
+# calibration snapshots (FakeFez, ...) used by the noise models.
+ibm = ["qiskit-ibm-runtime>=0.48"]
+# MIDI codec + wavetable synthesiser.
+audio = ["mido>=1.3", "scipy>=1.11"]
+# Everything needed to run the notebooks.
+notebooks = [
+    "tessa-paper[ibm,audio]",
+    "jupyter>=1.0",
+    "ipykernel>=6",
+    "nbclient>=0.10",
+    "nbformat>=5.10",
+    "pandas>=2.0",
+    "pylatexenc>=2.10",
+]
+dev = [
+    "tessa-paper[notebooks]",
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[project.scripts]
+tessa-hardware = "tessa.hardware.package:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tessa", "src/tessa_paper"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "pyproject.toml", "README.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --strict-markers"
+markers = [
+    "slow: tests taking more than a few seconds (deselect with '-m \"not slow\"')",
+    "notebook: executes a notebook end to end (also marked slow)",
+]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 90
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "RUF"]
+ignore = [
+    "E501",   # long lines in docstrings / ASCII tables are fine
+    "RUF005", # explicit list concatenation reads better here
+]
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = ["E402", "E702", "E731", "UP031", "B905", "C408"]
+"tests/*" = ["E402", "E731"]
+
+[tool.ruff.format]
+quote-style = "double"

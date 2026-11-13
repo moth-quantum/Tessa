@@ -1,0 +1,1513 @@
+{
+  "device": "ibm_phoenix",
+  "calibrated_at": "2026-10-09 11:17:07+02:00",
+  "shots": 32768,
+  "seed": 7,
+  "sequences": {
+    "POLG2_mRNA": {
+      "alphabet": "ACGT",
+      "constellation | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "constellation | phoenix noise": {
+        "best_drr": "mean_std",
+        "metrics": {
+          "none": {
+            "accuracy": 0.8881163084702908,
+            "errors": 177,
+            "first": 0.8938053097345132,
+            "second": 0.8824273072060683,
+            "within 1": 0.9469026548672567,
+            "mean dist": 0.1820480404551201
+          },
+          "min_max": {
+            "accuracy": 0.8830594184576486,
+            "errors": 185,
+            "first": 0.8862199747155499,
+            "second": 0.8798988621997471,
+            "within 1": 0.9456384323640961,
+            "mean dist": 0.18836915297092288
+          },
+          "percentile": {
+            "accuracy": 0.8881163084702908,
+            "errors": 177,
+            "first": 0.8938053097345132,
+            "second": 0.8824273072060683,
+            "within 1": 0.9506953223767383,
+            "mean dist": 0.17762326169405815
+          },
+          "mean_std": {
+            "accuracy": 0.8900126422250316,
+            "errors": 174,
+            "first": 0.8912768647281921,
+            "second": 0.888748419721871,
+            "within 1": 0.9475347661188369,
+            "mean dist": 0.1788874841972187
+          },
+          "abs_max": {
+            "accuracy": 0.8881163084702908,
+            "errors": 177,
+            "first": 0.8925410872313527,
+            "second": 0.8836915297092288,
+            "within 1": 0.9475347661188369,
+            "mean dist": 0.18078381795195955
+          },
+          "min_avg_max": {
+            "accuracy": 0.8893805309734514,
+            "errors": 175,
+            "first": 0.8975979772439949,
+            "second": 0.8811630847029077,
+            "within 1": 0.9456384323640961,
+            "mean dist": 0.18394437420986093
+          }
+        }
+      },
+      "levels | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "levels | phoenix noise": {
+        "best_drr": "mean_std",
+        "metrics": {
+          "none": {
+            "accuracy": 0.6833122629582806,
+            "errors": 501,
+            "first": 0.6965865992414665,
+            "second": 0.6700379266750948,
+            "within 1": 0.9576485461441213,
+            "mean dist": 0.359039190897598
+          },
+          "min_max": {
+            "accuracy": 0.7281921618204804,
+            "errors": 430,
+            "first": 0.7484197218710493,
+            "second": 0.7079646017699115,
+            "within 1": 0.9538558786346397,
+            "mean dist": 0.3179519595448799
+          },
+          "percentile": {
+            "accuracy": 0.7718078381795196,
+            "errors": 361,
+            "first": 0.7838179519595448,
+            "second": 0.7597977243994943,
+            "within 1": 0.9589127686472819,
+            "mean dist": 0.2692793931731985
+          },
+          "mean_std": {
+            "accuracy": 0.8337547408343868,
+            "errors": 263,
+            "first": 0.8381795195954488,
+            "second": 0.8293299620733249,
+            "within 1": 0.9595448798988622,
+            "mean dist": 0.20670037926675094
+          },
+          "abs_max": {
+            "accuracy": 0.7117572692793932,
+            "errors": 456,
+            "first": 0.7319848293299621,
+            "second": 0.6915297092288243,
+            "within 1": 0.9601769911504425,
+            "mean dist": 0.3280657395701643
+          },
+          "min_avg_max": {
+            "accuracy": 0.7262958280657396,
+            "errors": 433,
+            "first": 0.7484197218710493,
+            "second": 0.7041719342604298,
+            "within 1": 0.9563843236409608,
+            "mean dist": 0.3173198482932996
+          }
+        }
+      }
+    },
+    "SUR1_ABCC8_iso2": {
+      "alphabet": "IVLFCMAGTSWYPHEQDNKR",
+      "constellation | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "constellation | phoenix noise": {
+        "best_drr": "mean_std",
+        "metrics": {
+          "none": {
+            "accuracy": 0.6371681415929203,
+            "errors": 574,
+            "first": 0.6573957016434893,
+            "second": 0.6169405815423514,
+            "within 1": 0.7572692793931732,
+            "mean dist": 1.8666245259165613
+          },
+          "min_max": {
+            "accuracy": 0.629582806573957,
+            "errors": 586,
+            "first": 0.6536030341340076,
+            "second": 0.6055625790139064,
+            "within 1": 0.7477876106194691,
+            "mean dist": 1.9348925410872313
+          },
+          "percentile": {
+            "accuracy": 0.6548672566371682,
+            "errors": 546,
+            "first": 0.6763590391908976,
+            "second": 0.6333754740834386,
+            "within 1": 0.7585335018963337,
+            "mean dist": 1.8463969658659924
+          },
+          "mean_std": {
+            "accuracy": 0.695322376738306,
+            "errors": 482,
+            "first": 0.7142857142857143,
+            "second": 0.6763590391908976,
+            "within 1": 0.7774968394437421,
+            "mean dist": 1.654235145385588
+          },
+          "abs_max": {
+            "accuracy": 0.6434892541087232,
+            "errors": 564,
+            "first": 0.6649810366624526,
+            "second": 0.6219974715549936,
+            "within 1": 0.7566371681415929,
+            "mean dist": 1.884323640960809
+          },
+          "min_avg_max": {
+            "accuracy": 0.622629582806574,
+            "errors": 597,
+            "first": 0.6447534766118836,
+            "second": 0.6005056890012642,
+            "within 1": 0.7275600505689002,
+            "mean dist": 2.0512010113780024
+          }
+        }
+      },
+      "levels | noiseless": {
+        "best_drr": "mean_std",
+        "metrics": {
+          "none": {
+            "accuracy": 0.9450063211125158,
+            "errors": 87,
+            "first": 0.9835651074589128,
+            "second": 0.9064475347661188,
+            "within 1": 1.0,
+            "mean dist": 0.054993678887484194
+          },
+          "min_max": {
+            "accuracy": 0.6605562579013906,
+            "errors": 537,
+            "first": 0.8710493046776233,
+            "second": 0.450063211125158,
+            "within 1": 0.9860935524652339,
+            "mean dist": 0.35461441213653605
+          },
+          "percentile": {
+            "accuracy": 0.9285714285714286,
+            "errors": 113,
+            "first": 0.9810366624525917,
+            "second": 0.8761061946902655,
+            "within 1": 1.0,
+            "mean dist": 0.07142857142857142
+          },
+          "mean_std": {
+            "accuracy": 0.9437420986093552,
+            "errors": 89,
+            "first": 0.9835651074589128,
+            "second": 0.9039190897597977,
+            "within 1": 1.0,
+            "mean dist": 0.05625790139064475
+          },
+          "abs_max": {
+            "accuracy": 0.7161820480404552,
+            "errors": 449,
+            "first": 0.8900126422250316,
+            "second": 0.5423514538558787,
+            "within 1": 0.993046776232617,
+            "mean dist": 0.29077117572692796
+          },
+          "min_avg_max": {
+            "accuracy": 0.6738305941845765,
+            "errors": 516,
+            "first": 0.8849557522123894,
+            "second": 0.46270543615676357,
+            "within 1": 0.9873577749683944,
+            "mean dist": 0.33944374209860934
+          }
+        }
+      },
+      "levels | phoenix noise": {
+        "best_drr": "percentile",
+        "metrics": {
+          "none": {
+            "accuracy": 0.16434892541087232,
+            "errors": 1322,
+            "first": 0.1529709228824273,
+            "second": 0.17572692793931732,
+            "within 1": 0.43489254108723135,
+            "mean dist": 2.2964601769911503
+          },
+          "min_max": {
+            "accuracy": 0.2686472819216182,
+            "errors": 1157,
+            "first": 0.2579013906447535,
+            "second": 0.27939317319848295,
+            "within 1": 0.5752212389380531,
+            "mean dist": 1.8887484197218711
+          },
+          "percentile": {
+            "accuracy": 0.3109987357774968,
+            "errors": 1090,
+            "first": 0.30467762326169406,
+            "second": 0.3173198482932996,
+            "within 1": 0.6731984829329962,
+            "mean dist": 1.6447534766118836
+          },
+          "mean_std": {
+            "accuracy": 0.3002528445006321,
+            "errors": 1107,
+            "first": 0.3084702907711757,
+            "second": 0.2920353982300885,
+            "within 1": 0.6719342604298356,
+            "mean dist": 1.5967130214917826
+          },
+          "abs_max": {
+            "accuracy": 0.1498103666245259,
+            "errors": 1345,
+            "first": 0.11757269279393173,
+            "second": 0.1820480404551201,
+            "within 1": 0.4367888748419722,
+            "mean dist": 2.312895069532238
+          },
+          "min_avg_max": {
+            "accuracy": 0.2895069532237674,
+            "errors": 1124,
+            "first": 0.29077117572692796,
+            "second": 0.28824273072060685,
+            "within 1": 0.6030341340075853,
+            "mean dist": 1.8034134007585334
+          }
+        }
+      }
+    },
+    "MT_CO3": {
+      "alphabet": "ACGT",
+      "constellation | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "constellation | phoenix noise": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 0.9107142857142857,
+            "errors": 70,
+            "first": 0.9107142857142857,
+            "second": NaN,
+            "within 1": 0.9528061224489796,
+            "mean dist": 0.14668367346938777
+          },
+          "min_max": {
+            "accuracy": 0.9145408163265306,
+            "errors": 67,
+            "first": 0.9145408163265306,
+            "second": NaN,
+            "within 1": 0.9540816326530612,
+            "mean dist": 0.14030612244897958
+          },
+          "percentile": {
+            "accuracy": 0.9145408163265306,
+            "errors": 67,
+            "first": 0.9145408163265306,
+            "second": NaN,
+            "within 1": 0.9502551020408163,
+            "mean dist": 0.14668367346938777
+          },
+          "mean_std": {
+            "accuracy": 0.9145408163265306,
+            "errors": 67,
+            "first": 0.9145408163265306,
+            "second": NaN,
+            "within 1": 0.951530612244898,
+            "mean dist": 0.1441326530612245
+          },
+          "abs_max": {
+            "accuracy": 0.9107142857142857,
+            "errors": 70,
+            "first": 0.9107142857142857,
+            "second": NaN,
+            "within 1": 0.9528061224489796,
+            "mean dist": 0.14668367346938777
+          },
+          "min_avg_max": {
+            "accuracy": 0.9132653061224489,
+            "errors": 68,
+            "first": 0.9132653061224489,
+            "second": NaN,
+            "within 1": 0.9528061224489796,
+            "mean dist": 0.1441326530612245
+          }
+        }
+      },
+      "levels | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "levels | phoenix noise": {
+        "best_drr": "mean_std",
+        "metrics": {
+          "none": {
+            "accuracy": 0.6186224489795918,
+            "errors": 299,
+            "first": 0.6186224489795918,
+            "second": NaN,
+            "within 1": 0.9795918367346939,
+            "mean dist": 0.4017857142857143
+          },
+          "min_max": {
+            "accuracy": 0.8150510204081632,
+            "errors": 145,
+            "first": 0.8150510204081632,
+            "second": NaN,
+            "within 1": 0.9770408163265306,
+            "mean dist": 0.20790816326530612
+          },
+          "percentile": {
+            "accuracy": 0.8418367346938775,
+            "errors": 124,
+            "first": 0.8418367346938775,
+            "second": NaN,
+            "within 1": 0.9808673469387755,
+            "mean dist": 0.17729591836734693
+          },
+          "mean_std": {
+            "accuracy": 0.8788265306122449,
+            "errors": 95,
+            "first": 0.8788265306122449,
+            "second": NaN,
+            "within 1": 0.9783163265306123,
+            "mean dist": 0.14285714285714285
+          },
+          "abs_max": {
+            "accuracy": 0.6989795918367347,
+            "errors": 236,
+            "first": 0.6989795918367347,
+            "second": NaN,
+            "within 1": 0.9783163265306123,
+            "mean dist": 0.3227040816326531
+          },
+          "min_avg_max": {
+            "accuracy": 0.8137755102040817,
+            "errors": 146,
+            "first": 0.8137755102040817,
+            "second": NaN,
+            "within 1": 0.9795918367346939,
+            "mean dist": 0.2066326530612245
+          }
+        }
+      }
+    },
+    "RRM1_HUMAN": {
+      "alphabet": "IVLFCMAGTSWYPHEQDNKR",
+      "constellation | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "constellation | phoenix noise": {
+        "best_drr": "percentile",
+        "metrics": {
+          "none": {
+            "accuracy": 0.8598484848484849,
+            "errors": 111,
+            "first": 0.8598484848484849,
+            "second": NaN,
+            "within 1": 0.8699494949494949,
+            "mean dist": 0.8005050505050505
+          },
+          "min_max": {
+            "accuracy": 0.8611111111111112,
+            "errors": 110,
+            "first": 0.8611111111111112,
+            "second": NaN,
+            "within 1": 0.8737373737373737,
+            "mean dist": 0.7904040404040404
+          },
+          "percentile": {
+            "accuracy": 0.8623737373737373,
+            "errors": 109,
+            "first": 0.8623737373737373,
+            "second": NaN,
+            "within 1": 0.8762626262626263,
+            "mean dist": 0.7537878787878788
+          },
+          "mean_std": {
+            "accuracy": 0.8573232323232324,
+            "errors": 113,
+            "first": 0.8573232323232324,
+            "second": NaN,
+            "within 1": 0.875,
+            "mean dist": 0.7676767676767676
+          },
+          "abs_max": {
+            "accuracy": 0.8585858585858586,
+            "errors": 112,
+            "first": 0.8585858585858586,
+            "second": NaN,
+            "within 1": 0.8686868686868687,
+            "mean dist": 0.8068181818181818
+          },
+          "min_avg_max": {
+            "accuracy": 0.8611111111111112,
+            "errors": 110,
+            "first": 0.8611111111111112,
+            "second": NaN,
+            "within 1": 0.8737373737373737,
+            "mean dist": 0.7904040404040404
+          }
+        }
+      },
+      "levels | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "levels | phoenix noise": {
+        "best_drr": "min_avg_max",
+        "metrics": {
+          "none": {
+            "accuracy": 0.2474747474747475,
+            "errors": 596,
+            "first": 0.2474747474747475,
+            "second": NaN,
+            "within 1": 0.5404040404040404,
+            "mean dist": 1.9027777777777777
+          },
+          "min_max": {
+            "accuracy": 0.4621212121212121,
+            "errors": 426,
+            "first": 0.4621212121212121,
+            "second": NaN,
+            "within 1": 0.7462121212121212,
+            "mean dist": 1.255050505050505
+          },
+          "percentile": {
+            "accuracy": 0.37247474747474746,
+            "errors": 497,
+            "first": 0.37247474747474746,
+            "second": NaN,
+            "within 1": 0.7929292929292929,
+            "mean dist": 1.2512626262626263
+          },
+          "mean_std": {
+            "accuracy": 0.3282828282828283,
+            "errors": 532,
+            "first": 0.3282828282828283,
+            "second": NaN,
+            "within 1": 0.7714646464646465,
+            "mean dist": 1.3118686868686869
+          },
+          "abs_max": {
+            "accuracy": 0.15404040404040403,
+            "errors": 670,
+            "first": 0.15404040404040403,
+            "second": NaN,
+            "within 1": 0.5757575757575758,
+            "mean dist": 1.8838383838383839
+          },
+          "min_avg_max": {
+            "accuracy": 0.476010101010101,
+            "errors": 415,
+            "first": 0.476010101010101,
+            "second": NaN,
+            "within 1": 0.7386363636363636,
+            "mean dist": 1.2613636363636365
+          }
+        }
+      }
+    },
+    "PIKACHURIN_HUMAN": {
+      "alphabet": "IVLFCMAGTSWYPHEQDNKR",
+      "constellation | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": 1.0,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "constellation | phoenix noise": {
+        "best_drr": "mean_std",
+        "metrics": {
+          "none": {
+            "accuracy": 0.9213372664700098,
+            "errors": 80,
+            "first": 0.931237721021611,
+            "second": 0.9114173228346457,
+            "within 1": 0.9567354965585054,
+            "mean dist": 0.3608652900688299
+          },
+          "min_max": {
+            "accuracy": 0.9036381514257621,
+            "errors": 98,
+            "first": 0.9115913555992141,
+            "second": 0.8956692913385826,
+            "within 1": 0.951819075712881,
+            "mean dist": 0.3687315634218289
+          },
+          "percentile": {
+            "accuracy": 0.8997050147492626,
+            "errors": 102,
+            "first": 0.9135559921414538,
+            "second": 0.8858267716535433,
+            "within 1": 0.9390363815142576,
+            "mean dist": 0.47099311701081614
+          },
+          "mean_std": {
+            "accuracy": 0.9449360865290068,
+            "errors": 56,
+            "first": 0.9548133595284872,
+            "second": 0.9350393700787402,
+            "within 1": 0.9665683382497542,
+            "mean dist": 0.2448377581120944
+          },
+          "abs_max": {
+            "accuracy": 0.943952802359882,
+            "errors": 57,
+            "first": 0.9528487229862476,
+            "second": 0.9350393700787402,
+            "within 1": 0.9665683382497542,
+            "mean dist": 0.2448377581120944
+          },
+          "min_avg_max": {
+            "accuracy": 0.9341199606686332,
+            "errors": 67,
+            "first": 0.9430255402750491,
+            "second": 0.9251968503937008,
+            "within 1": 0.95968534906588,
+            "mean dist": 0.336283185840708
+          }
+        }
+      },
+      "levels | noiseless": {
+        "best_drr": "mean_std",
+        "metrics": {
+          "none": {
+            "accuracy": 0.9488692232055064,
+            "errors": 52,
+            "first": 0.9744597249508841,
+            "second": 0.9232283464566929,
+            "within 1": 1.0,
+            "mean dist": 0.051130776794493606
+          },
+          "min_max": {
+            "accuracy": 0.8092428711897739,
+            "errors": 194,
+            "first": 0.8899803536345776,
+            "second": 0.7283464566929134,
+            "within 1": 0.9941002949852508,
+            "mean dist": 0.19665683382497542
+          },
+          "percentile": {
+            "accuracy": 0.951819075712881,
+            "errors": 49,
+            "first": 0.9842829076620825,
+            "second": 0.9192913385826772,
+            "within 1": 1.0,
+            "mean dist": 0.048180924287118974
+          },
+          "mean_std": {
+            "accuracy": 0.9557522123893806,
+            "errors": 45,
+            "first": 0.9842829076620825,
+            "second": 0.9271653543307087,
+            "within 1": 1.0,
+            "mean dist": 0.04424778761061947
+          },
+          "abs_max": {
+            "accuracy": 0.8308751229105211,
+            "errors": 172,
+            "first": 0.8821218074656189,
+            "second": 0.7795275590551181,
+            "within 1": 0.9960668633235005,
+            "mean dist": 0.17305801376597837
+          },
+          "min_avg_max": {
+            "accuracy": 0.8259587020648967,
+            "errors": 177,
+            "first": 0.8939096267190569,
+            "second": 0.7578740157480315,
+            "within 1": 0.9931170108161259,
+            "mean dist": 0.18092428711897737
+          }
+        }
+      },
+      "levels | phoenix noise": {
+        "best_drr": "percentile",
+        "metrics": {
+          "none": {
+            "accuracy": 0.24188790560471976,
+            "errors": 771,
+            "first": 0.2593320235756385,
+            "second": 0.22440944881889763,
+            "within 1": 0.6145526057030481,
+            "mean dist": 1.4169124877089478
+          },
+          "min_max": {
+            "accuracy": 0.3893805309734513,
+            "errors": 621,
+            "first": 0.39096267190569745,
+            "second": 0.38779527559055116,
+            "within 1": 0.7531956735496559,
+            "mean dist": 1.0117994100294985
+          },
+          "percentile": {
+            "accuracy": 0.5014749262536873,
+            "errors": 507,
+            "first": 0.518664047151277,
+            "second": 0.484251968503937,
+            "within 1": 0.8702064896755162,
+            "mean dist": 0.7217305801376598
+          },
+          "mean_std": {
+            "accuracy": 0.4975417895771878,
+            "errors": 511,
+            "first": 0.5127701375245579,
+            "second": 0.4822834645669291,
+            "within 1": 0.8947885939036382,
+            "mean dist": 0.6814159292035398
+          },
+          "abs_max": {
+            "accuracy": 0.23992133726647,
+            "errors": 773,
+            "first": 0.2357563850687623,
+            "second": 0.2440944881889764,
+            "within 1": 0.6568338249754179,
+            "mean dist": 1.3323500491642084
+          },
+          "min_avg_max": {
+            "accuracy": 0.43559488692232057,
+            "errors": 574,
+            "first": 0.4793713163064833,
+            "second": 0.39173228346456695,
+            "within 1": 0.7777777777777778,
+            "mean dist": 0.9311701081612586
+          }
+        }
+      }
+    },
+    "SHH_HUMAN": {
+      "alphabet": "IVLFCMAGTSWYPHEQDNKR",
+      "constellation | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "constellation | phoenix noise": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "levels | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "levels | phoenix noise": {
+        "best_drr": "min_avg_max",
+        "metrics": {
+          "none": {
+            "accuracy": 0.39826839826839827,
+            "errors": 278,
+            "first": 0.39826839826839827,
+            "second": NaN,
+            "within 1": 0.7294372294372294,
+            "mean dist": 1.0
+          },
+          "min_max": {
+            "accuracy": 0.6406926406926406,
+            "errors": 166,
+            "first": 0.6406926406926406,
+            "second": NaN,
+            "within 1": 0.9523809523809523,
+            "mean dist": 0.42207792207792205
+          },
+          "percentile": {
+            "accuracy": 0.44155844155844154,
+            "errors": 258,
+            "first": 0.44155844155844154,
+            "second": NaN,
+            "within 1": 0.9523809523809523,
+            "mean dist": 0.6147186147186147
+          },
+          "mean_std": {
+            "accuracy": 0.5995670995670995,
+            "errors": 185,
+            "first": 0.5995670995670995,
+            "second": NaN,
+            "within 1": 0.9675324675324676,
+            "mean dist": 0.4458874458874459
+          },
+          "abs_max": {
+            "accuracy": 0.08874458874458875,
+            "errors": 421,
+            "first": 0.08874458874458875,
+            "second": NaN,
+            "within 1": 0.7402597402597403,
+            "mean dist": 1.2575757575757576
+          },
+          "min_avg_max": {
+            "accuracy": 0.6601731601731602,
+            "errors": 157,
+            "first": 0.6601731601731602,
+            "second": NaN,
+            "within 1": 0.9545454545454546,
+            "mean dist": 0.4004329004329004
+          }
+        }
+      }
+    },
+    "P53_HUMAN": {
+      "alphabet": "IVLFCMAGTSWYPHEQDNKR",
+      "constellation | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "constellation | phoenix noise": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "levels | noiseless": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "percentile": {
+            "accuracy": 0.9974554707379135,
+            "errors": 1,
+            "first": 0.9974554707379135,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.002544529262086514
+          },
+          "mean_std": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "abs_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          },
+          "min_avg_max": {
+            "accuracy": 1.0,
+            "errors": 0,
+            "first": 1.0,
+            "second": NaN,
+            "within 1": 1.0,
+            "mean dist": 0.0
+          }
+        }
+      },
+      "levels | phoenix noise": {
+        "best_drr": "min_max",
+        "metrics": {
+          "none": {
+            "accuracy": 0.44529262086513993,
+            "errors": 218,
+            "first": 0.44529262086513993,
+            "second": NaN,
+            "within 1": 0.7531806615776081,
+            "mean dist": 0.9440203562340967
+          },
+          "min_max": {
+            "accuracy": 0.6005089058524173,
+            "errors": 157,
+            "first": 0.6005089058524173,
+            "second": NaN,
+            "within 1": 0.9287531806615776,
+            "mean dist": 0.47837150127226463
+          },
+          "percentile": {
+            "accuracy": 0.4732824427480916,
+            "errors": 207,
+            "first": 0.4732824427480916,
+            "second": NaN,
+            "within 1": 0.9363867684478372,
+            "mean dist": 0.5979643765903307
+          },
+          "mean_std": {
+            "accuracy": 0.5368956743002544,
+            "errors": 182,
+            "first": 0.5368956743002544,
+            "second": NaN,
+            "within 1": 0.9465648854961832,
+            "mean dist": 0.5241730279898219
+          },
+          "abs_max": {
+            "accuracy": 0.10432569974554708,
+            "errors": 352,
+            "first": 0.10432569974554708,
+            "second": NaN,
+            "within 1": 0.7964376590330788,
+            "mean dist": 1.1984732824427482
+          },
+          "min_avg_max": {
+            "accuracy": 0.5877862595419847,
+            "errors": 162,
+            "first": 0.5877862595419847,
+            "second": NaN,
+            "within 1": 0.926208651399491,
+            "mean dist": 0.49363867684478374
+          }
+        }
+      }
+    }
+  }
+}

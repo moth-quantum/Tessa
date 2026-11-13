@@ -1,0 +1,90 @@
+# An example package for scripts/hardware_package.py. Every run below goes into
+# one IBM job. Image paths are relative to this file.
+#
+# Keys at the top are the defaults for every run; a run can override any of them.
+# The keys and their values are the page's options:
+#   representation     gray, palette, color, huevalue, transition
+#   basis              z, x, zx, zxy; palette also sphere1, sphere2
+#   shots              100 to 100000
+#   mapping            lines, squares, rectangles, patches, random
+#   seed               the seed for patches and random
+#   colorspace         rgb, hsv, hsl, ycbcr (for color)
+#   transition_values  gray, palette (for transition)
+#   alphas             2 to 15 readout angles (for transition)
+# The device is set once, for the whole package: phoenix or fez.
+#
+# The [ibm] table at the end holds the IBM Cloud API key and the instance CRN.
+# Both are optional: without them, the script reads QISKIT_IBM_TOKEN and
+# IQPIXL_IBM_INSTANCE. Do not commit a package file that holds a key.
+
+name = "PixelArt"
+device = "phoenix"
+shots = 8192
+mapping = "lines"
+seed = 0
+
+[[runs]]
+label = "anime"
+image = "../../pixel/AnimeGurl.png"
+representation = "color"
+basis = "zxy"
+mapping= "patches"
+seed = 0
+
+[[runs]]
+label = "sleepingCat"
+image = "../../pixel/Dias.png"
+representation = "gray"
+basis = "zxy"
+mapping = "lines"
+
+[[runs]]
+label = "cat_transition"
+images = ["../../data/qcat.png", "../../data/qcat_dead.png"]
+representation = "transition"
+transition_values = "gray"
+mapping = "lines"
+alphas = 5
+
+[[runs]]
+label = "apple_moth_gray"
+images = ["../../pixel/Leviatic1.png", "../../pixel/levianc2.png"]
+representation = "transition"
+transition_values = "gray"
+alphas = 5
+
+
+[[runs]]
+label = "citypopcat"
+image = "../../pixel/Leviatic3.png"
+representation = "huevalue"
+basis = "zxy"
+mapping= "lines"
+seed = 0
+
+[[runs]]
+label = "statue"
+image = "../../pixel/Statue.png"
+representation = "gray"
+basis = "zxy"
+mapping = "patches"
+seed = 0
+
+[[runs]]
+label = "spaceship"
+image = "../../pixel/Spaceship.png"
+representation = "palette"
+basis = "z"
+mapping = "rectangles"
+
+[[runs]]
+label = "apple_moth_color"
+images = ["../../pixel/Leviatic1.png", "../../pixel/levianc2.png"]
+representation = "transition"
+transition_values = "palette"
+alphas = 5
+shots = 16384
+
+[ibm]
+token = "<removed>"
+instance = "<redacted>"

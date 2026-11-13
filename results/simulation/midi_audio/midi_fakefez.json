@@ -1,0 +1,79 @@
+{
+ "kind": "SIMULATION (FakeFez machine-average noise), not hardware",
+ "input": "data/midi/telemann_small.mid",
+ "device_model": "FakeFez (qiskit-ibm-runtime), backend_rates averages",
+ "capacity": 448,
+ "shots": 8000,
+ "seed": 1,
+ "rates": {
+  "sx_error": 0.0002870872629996398,
+  "cz_error": 0.045112061806058645,
+  "readout_error": 0.01324149889823718,
+  "sx_duration": 2.4e-08,
+  "cz_duration": 8.42272727272727e-08,
+  "t1": 0.00014525564544148385,
+  "t2": 9.045909084043329e-05
+ },
+ "runs": {
+  "noiseless": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 1.0,
+   "pitch_mae_semitones": 0.0,
+   "duration_mae_s": 1.2807558407995682e-15
+  },
+  "pitch_drr=none": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.1873198847262248,
+   "pitch_mae_semitones": 2.126801152737752,
+   "duration_mae_s": 0.49086553630275026
+  },
+  "pitch_drr=abs_max": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.002881844380403458,
+   "pitch_mae_semitones": 7.564841498559078,
+   "duration_mae_s": 0.6989837591046542
+  },
+  "pitch_drr=min_max": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.08357348703170028,
+   "pitch_mae_semitones": 1.8328530259365994,
+   "duration_mae_s": 0.5491848518622268
+  },
+  "pitch_drr=percentile": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.1239193083573487,
+   "pitch_mae_semitones": 1.6657060518731988,
+   "duration_mae_s": 0.41069727486818436
+  },
+  "pitch_drr=mean_std": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.49279538904899134,
+   "pitch_mae_semitones": 0.6570605187319885,
+   "duration_mae_s": 0.208349817491737
+  },
+  "pitch_drr=min_avg_max": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.2334293948126801,
+   "pitch_mae_semitones": 1.1325648414985592,
+   "duration_mae_s": 0.11306402613382044
+  },
+  "mean_std, duration_warp=linear": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.49279538904899134,
+   "pitch_mae_semitones": 0.6570605187319885,
+   "duration_mae_s": 0.208349817491737
+  },
+  "mean_std, duration_warp=log": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.49279538904899134,
+   "pitch_mae_semitones": 0.6570605187319885,
+   "duration_mae_s": 0.14471293954020242
+  },
+  "mean_std, duration_warp=sqrt": {
+   "n_notes": 347,
+   "pitch_exact_fraction": 0.49279538904899134,
+   "pitch_mae_semitones": 0.6570605187319885,
+   "duration_mae_s": 0.11675067571583751
+  }
+ }
+}

@@ -1,0 +1,140 @@
+{
+  "phoenix": {
+    "job_id": "davnlrlj371s73dn89o0",
+    "backend": "ibm_phoenix",
+    "circuits": [
+      "k_image",
+      "k_reference",
+      "z_image",
+      "pairs_reference",
+      "pairs_0",
+      "pairs_1",
+      "pairs_2",
+      "pairs_3",
+      "pairs_4",
+      "pairs_5",
+      "pairs_6",
+      "pairs_7",
+      "pairs_8",
+      "pairs_9",
+      "pairs_10",
+      "pairs_11",
+      "pairs_12",
+      "pairs_13",
+      "pairs_14",
+      "pairs_15",
+      "pairs_16",
+      "pairs_17",
+      "pairs_18",
+      "pairs_19",
+      "pairs_20",
+      "pairs_21",
+      "pairs_22",
+      "pairs_23",
+      "pairs_24",
+      "pairs_25"
+    ],
+    "shots": 8192,
+    "submitted": "2026-10-02T09:35:43.099505+00:00",
+    "sampler_options": {
+      "environment": {
+        "job_tags": [
+          "iqpixl",
+          "coherence",
+          "phoenix"
+        ]
+      }
+    },
+    "status": "DONE",
+    "metrics": {
+      "caller": "qiskit_ibm_runtime~sampler.py",
+      "qiskit_version": "qiskit_ibm_runtime-0.48.0,qiskit-2.5.1*,qiskit_aer-0.17.2",
+      "timestamps": {
+        "created": "2026-10-02T09:35:42.934418Z",
+        "finished": "2026-10-02T09:36:01.502643Z",
+        "running": "2026-10-02T09:35:44.502501Z"
+      },
+      "usage": {
+        "qpu_charge_time_seconds": 6,
+        "value": 0.0892,
+        "unit": "resource_units",
+        "status": "complete",
+        "details": [
+          {
+            "value": 0.0892,
+            "unit": "resource_units",
+            "metric": {
+              "id": "<redacted>",
+              "value": 6
+            }
+          }
+        ]
+      },
+      "circuits_execution_time_ns": 2592084224
+    },
+    "usage": 6
+  },
+  "fez": {
+    "job_id": "davnls2l7guc73cf7vf0",
+    "backend": "ibm_fez",
+    "circuits": [
+      "k_image",
+      "k_reference",
+      "z_image",
+      "pairs_reference",
+      "pairs_0",
+      "pairs_1",
+      "pairs_2",
+      "pairs_3",
+      "pairs_4",
+      "pairs_5",
+      "pairs_6",
+      "pairs_7",
+      "pairs_8",
+      "pairs_9",
+      "pairs_10",
+      "pairs_11",
+      "pairs_12",
+      "pairs_13"
+    ],
+    "shots": 8192,
+    "submitted": "2026-10-02T09:35:45.239651+00:00",
+    "sampler_options": {
+      "environment": {
+        "job_tags": [
+          "iqpixl",
+          "coherence",
+          "fez"
+        ]
+      }
+    },
+    "status": "DONE",
+    "metrics": {
+      "caller": "qiskit_ibm_runtime~sampler.py",
+      "qiskit_version": "qiskit_ibm_runtime-0.48.0,qiskit-2.5.1*,qiskit_aer-0.17.2",
+      "timestamps": {
+        "created": "2026-10-02T09:35:44.938222Z",
+        "finished": "2026-10-02T09:36:34.134662Z",
+        "running": "2026-10-02T09:35:46.958378Z"
+      },
+      "usage": {
+        "qpu_charge_time_seconds": 40,
+        "value": 0.6654,
+        "unit": "resource_units",
+        "status": "complete",
+        "details": [
+          {
+            "value": 0.6654,
+            "unit": "resource_units",
+            "metric": {
+              "id": "<redacted>",
+              "value": 40
+            }
+          }
+        ]
+      },
+      "circuits_execution_time_ns": 38187961600
+    },
+    "usage": 40
+  }
+}

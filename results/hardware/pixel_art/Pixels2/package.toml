@@ -1,0 +1,43 @@
+# An example package for scripts/hardware_package.py. Every run below goes into
+# one IBM job. Image paths are relative to this file.
+#
+# Keys at the top are the defaults for every run; a run can override any of them.
+# The keys and their values are the page's options:
+#   representation     gray, palette, color, huevalue, transition
+#   basis              z, x, zx, zxy; palette also sphere1, sphere2
+#   shots              100 to 100000
+#   mapping            lines, squares, rectangles, patches, random
+#   seed               the seed for patches and random
+#   colorspace         rgb, hsv, hsl, ycbcr (for color)
+#   transition_values  gray, palette (for transition)
+#   alphas             2 to 15 readout angles (for transition)
+# The device is set once, for the whole package: phoenix or fez.
+#
+# The [ibm] table at the end holds the IBM Cloud API key and the instance CRN.
+# Both are optional: without them, the script reads QISKIT_IBM_TOKEN and
+# IQPIXL_IBM_INSTANCE. Do not commit a package file that holds a key.
+
+name = "Pixels2"
+device = "phoenix"
+shots = 8192
+mapping = "lines"
+seed = 0
+
+[[runs]]
+label = "ramen"
+image = "../../pixel/RamenBowl.png"
+representation = "color"
+colorspace = "hsv"
+basis = "zxy"
+mapping= "lines"
+
+[[runs]]
+label = "forest"
+image = "../../pixel/waterfall.webp"
+representation = "gray"
+basis = "zxy"
+mapping = "lines"
+
+[ibm]
+token = "<removed>"
+instance = "<redacted>"

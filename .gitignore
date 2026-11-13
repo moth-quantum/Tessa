@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Figures written by the notebooks and scripts/make_all_figures.py are not committed: the
+# executed notebooks show them. The published reference copies in figures/paper/ are tracked.
+figures/*.png
+figures/*.pdf
+figures/*.tex
+!figures/paper/
+
+# Working notes of the build
+_notes/
+
+# Never commit IBM credentials or package files that hold them
+qiskit-ibm.json
+*.secret.toml
