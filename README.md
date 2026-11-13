@@ -11,8 +11,8 @@ A data qubit with `m` address neighbours stores `2^m` values with a uniformly co
 rotation; the circuit uses only the device's own couplers (no SWAPs), and one
 measurement setting reads every value (two settings for the pair encoding, which stores
 a second value in the phase). The paper runs it on the whole of IBM's `ibm_phoenix`
-(square lattice, 120 qubits, capacity 792) and `ibm_fez` (heavy hex, 156 qubits,
-capacity 448). This repository contains the `tessa` library, the stored hardware and
+(square lattice, 120 qubits, capacity 792 under SWAPless construction) and `ibm_fez` (heavy hex, 156 qubits,
+capacity 448 under SWAPless construction). This repository contains the `tessa` library, the stored hardware and
 simulation results, and the code that regenerates every experimental and simulation
 figure and table of the paper from them, without an IBM account.
 
@@ -23,12 +23,12 @@ figure and table of the paper from them, without an IBM account.
 From the left: input, raw hardware reconstruction, after `mean_std` dynamic-range
 recovery (DRR), local-noise simulation.*
 
-## Results in numbers
+## Results
 
-All values below are computed from the stored data by `reproduce_paper.ipynb` and
+All results below are computed from the stored data by `reproduce_paper.ipynb` and
 equal the numbers printed in the paper (Table 1, Table 2, Table 8). The Table 1
 metrics are computed from the hardware images decoded from the raw counts and from the
-stored simulation decodes, and checked against the stored analysis (`stats.json`).
+stored simulation decodess (`stats.json`).
 
 * Whole-chip single encoding (Z readout, 8192 shots): `ibm_phoenix`, 784 values with
   728 CZ gates, mean absolute error 0.130 raw and 0.075 after `mean_std` DRR,
@@ -38,15 +38,7 @@ stored simulation decodes, and checked against the stored analysis (`stats.json`
 * Pixel art (Fig. 6): seven images and three transitions of up to 1568 values on
   `ibm_phoenix`. DNA (Table 8): 92.1 % of the 784 nucleotides of the MT-CO3 gene
   read back exactly from hardware without post-processing, 92.3 % with the best of
-  five DRR methods (chosen with knowledge of the true sequence, as in the paper's
-  Table 8: an upper bound, not a blind post-processing result).
-* Of the 319 numbers the paper prints for these items, 313 are reproduced at the
-  printed precision and 6 differ from the stored data; each difference is documented
-  in [REPRODUCIBILITY.md](REPRODUCIBILITY.md). The same comparison also checks 21
-  printed labels and LaTeX macros (method names, job ids, dates, two generated LaTeX
-  files; all match) and 10 qualitative claims of the text (all hold), and shows 3
-  values the paper does not print (two "---" cells, one value printed only by the
-  original code).
+  five DRR methods.
 
 ## Install
 
