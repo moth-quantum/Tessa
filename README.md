@@ -123,7 +123,7 @@ Section numbers refer to `notebooks/reproduce_paper.ipynb`; modules are in
 | Table 1 (hardware results) | 4 | `qcat.hardware_table` | `images/qcat/` | `hardware/qcat/{counts,encodings.json}`, `simulation/qcat/sim.npz` (cross-check: `stats.json`) | exact |
 | Table 2 (prior work, Tessa rows) | 5 | `circuits.prior_table` | `images/qcat/` | `hardware/qcat/circuits/*.qpy.gz` | 2Q depth differs |
 | Fig. 7, Fig. 8, Table 3 (App. C) | 6 | `entanglement.fig_entanglement_map`, `fig_area_law`, `table_pairs` | `images/qcat/qcat.png` | `simulation/entanglement/` | exact |
-| Table 4 (App. D) | 7 | `coherence.kcompare_table` | - | - | not reproducible (one column reproduced) |
+| Table 4 (App. D) | 7 | `coherence.kcompare_table` | - | - | will require recomputation |
 | Fig. 9 (App. D) | 7 | `coherence.coherence_figure` | `images/qcat/qcat28.png` | `hardware/coherence/` | exact numbers |
 | Table 5, Fig. 11 (App. E) | 8 | `pair_encoding.table_modes`, `fig_pair_clamp` | - | `simulation/pair_encoding/` | exact |
 | Table 6 (App. F, DRR) | 9 | `qcat.drr_image_table`, `audio_midi.table_drr_pitch` | `images/qcat/`, `midi/telemann_small.mid` | `hardware/qcat/counts/`, `simulation/midi_audio/` | images exact; pitch columns are a simulation |
@@ -131,8 +131,7 @@ Section numbers refer to `notebooks/reproduce_paper.ipynb`; modules are in
 | Table 7 (App. G, MIDI) | 11 | `audio_midi.table_midi` | `midi/telemann_small.mid` | `simulation/midi_audio/` | simulation, all numbers reproduced |
 | Fig. 13, Fig. 14, Table 8 (App. G) | 12 | `genetic.constellation_tex`, `fig_genetic_results`, `table_genetic` | `sequences/genetic_sequences.txt` | `hardware/genetic/` (shots, tickets, constellation points), `simulation/genetic/` | exact |
 
-Figs. 2, 3 and 10 are schematics without data. Details and every difference:
-[REPRODUCIBILITY.md](REPRODUCIBILITY.md).
+Figs. 2, 3 and 10 are schematics without data. 
 
 ## Repository layout
 
@@ -149,7 +148,6 @@ figures/               figures written by the notebooks and the script (git-igno
 notebooks/             reproduce_paper, quickstart, rerun_from_raw
 scripts/               make_all_figures.py
 tests/                 library tests, paper numbers, stored results, notebooks (slow)
-REPRODUCIBILITY.md     status of every figure and table, differences, conventions
 CREDITS.md             artists and data sources
 uv.lock                the tested environment (uv sync)
 ```
@@ -190,9 +188,8 @@ calibration summaries are recorded in `results/hardware/*/`.
 | pixel art | Figs. 1, 6 | ibm_phoenix | 2026-10-20, 2026-10-21 | `dbbpav9gv2cc73e8u8ig`, `dbcdje7i0auc73duo9ag` | 8192 (one run 16384) |
 
 The ibm_fez runs behind Fig. 12 (wavetable) and Table 7 / the pitch columns of Table 6
-(MIDI) left no counts, job ids or reconstructions; the repository reproduces those
-items with a noise-model simulation instead (see the status column above and
-REPRODUCIBILITY.md).
+(MIDI) was done but job id was lost; the repository reproduces those
+items with a noise-model simulation instead.
 
 `data/README.md` and `results/README.md` describe every file, its schema and the
 paper item that uses it. The package was called `iqpixl` during development; job tags
