@@ -634,3 +634,17 @@ def test_decode_from_counts_unsampled_configuration():
     assert np.isnan(flagged[1])
     with pytest.raises(ValueError):
         decode_from_counts(counts, enc, unsampled="drop")
+
+
+def test_exact_sampling_matches_aer_and_refuses_noise(lattice):
+    rng = np.random.default_rng(0)
+    x, y = rng.random(lattice.capacity), rng.random(lattice.capacity)
+    qc, enc = encode(lattice, x, y)
+    aer = decode(qc, enc, aer_sampler(lattice, seed=1), shots=8192, halo=None)
+    fast = decode(
+        qc, enc, aer_sampler(lattice), shots=8192, halo=None, exact_sampling=True, seed=1
+    )
+    for got_aer, got_fast, want in zip(aer, fast, (x, y), strict=True):
+        assert abs(np.abs(got_aer - want).mean() - np.abs(got_fast - want).mean()) < 0.01
+    with pytest.raises(ValueError, match="exact_sampling"):
+        decode(qc, enc, aer_sampler(lattice), exact_sampling=True)  # halo="traced"

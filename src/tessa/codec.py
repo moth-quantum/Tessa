@@ -38,6 +38,7 @@ from typing import Any
 import numpy as np
 from qiskit import QuantumCircuit, transpile
 from qiskit.circuit.library import UnitaryGate
+from qiskit.quantum_info import Statevector
 
 from .backends.base import counts_of, device_of
 from .core.decode import _bit_table, _sampled_configurations, decode_cells
@@ -376,6 +377,19 @@ def _run(sampler, jobs, shots, optimization_level) -> list[dict]:
     return [counts_of(result, i) for i in range(len(transpiled))]
 
 
+def _sample_exact(jobs, shots, seed) -> list[dict]:
+    """Noiseless shots without transpile or Aer: exact Born probabilities of each
+    (small) cell, sampled with one multinomial draw. Same distribution as Aer."""
+    rng = np.random.default_rng(seed)
+    out = []
+    for circuit, _, _ in jobs:
+        p = Statevector(circuit.remove_final_measurements(inplace=False)).probabilities()
+        n = circuit.num_qubits
+        hits = rng.multinomial(shots, p / p.sum())
+        out.append({format(i, f"0{n}b"): int(k) for i, k in enumerate(hits) if k})
+    return out
+
+
 def decode(
     circuit: QuantumCircuit,
     encoding: Encoding,
@@ -386,6 +400,8 @@ def decode(
     shots: int = 4096,
     optimization_level: int = 1,
     return_counts: bool = False,
+    exact_sampling: bool = False,
+    seed: int | None = None,
 ):
     """Measure ``circuit`` on ``sampler`` and recover the encoded field(s).
 
@@ -410,6 +426,10 @@ def decode(
     reconstructions of the QCAT hardware experiment) were made with bare cells,
     i.e. ``halo=None``; pass it explicitly to reproduce them. The default
     ``"traced"`` was added afterwards and gives slightly different noisy results.
+
+    ``exact_sampling=True`` (noiseless sampler, ``per_group=True``, ``halo=None``)
+    skips transpile and Aer: each cell's exact probabilities are sampled with
+    numpy (``seed``), the same shot distribution about 10x faster.
     """
     if circuit.num_clbits:
         raise ValueError(
@@ -425,6 +445,15 @@ def decode(
             "build the graph from this device with graph_from_backend"
         )
 
+    if exact_sampling and (
+        not per_group
+        or halo is not None
+        or getattr(sampler, "noise_model", "missing") is not None
+    ):
+        raise ValueError(
+            "exact_sampling needs per_group=True, halo=None and a noiseless "
+            "simulator sampler (aer_sampler)"
+        )
     if per_group:
         if halo == "traced":
             _check_traceable(sampler)
@@ -440,7 +469,10 @@ def decode(
             for basis in mode.bases:
                 keys.append((g.site, basis))
                 jobs.append((_measured(cell, [0], basis), layout, traced))
-        every = _run(sampler, jobs, shots, optimization_level)
+        if exact_sampling:
+            every = _sample_exact(jobs, shots, seed)
+        else:
+            every = _run(sampler, jobs, shots, optimization_level)
 
         counts = {g.site: {} for g in graph.groups}
         for (site, basis), c in zip(keys, every, strict=True):
