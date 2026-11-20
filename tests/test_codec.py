@@ -634,3 +634,19 @@ def test_decode_from_counts_unsampled_configuration():
     assert np.isnan(flagged[1])
     with pytest.raises(ValueError):
         decode_from_counts(counts, enc, unsampled="drop")
+
+
+def test_executor_chunks_reproduce_the_sequential_decode(lattice):
+    from concurrent.futures import ThreadPoolExecutor
+
+    rng = np.random.default_rng(0)
+    x, y = rng.random(lattice.capacity), rng.random(lattice.capacity)
+    qc, enc = encode(lattice, x, y)
+    seq = decode(qc, enc, aer_sampler(lattice, seed=1), halo=None)
+    with ThreadPoolExecutor(1) as ex:  # one chunk: same jobs, same seed
+        par = decode(qc, enc, aer_sampler(lattice, seed=1), halo=None, executor=ex)
+    for a, b in zip(seq, par, strict=True):
+        np.testing.assert_array_equal(a, b)
+    with ThreadPoolExecutor(3) as ex:  # several chunks: every cell still decoded
+        got = decode(qc, enc, aer_sampler(lattice), halo=None, executor=ex)
+    assert all(np.isfinite(f).all() and f.shape == x.shape for f in got)

@@ -376,6 +376,27 @@ def _run(sampler, jobs, shots, optimization_level) -> list[dict]:
     return [counts_of(result, i) for i in range(len(transpiled))]
 
 
+def _cell_counts(circuit, graph, groups, mode, halo, sampler, shots, opt_level):
+    """Cut, measure and run ``groups``' cells: ``({site: {basis: counts}},
+    {site: n_cell_qubits})``. Module-level so a process pool can run a chunk."""
+    mode = get_mode(mode)
+    keys, jobs, n_cell = [], [], {}
+    for g in groups:
+        shape = "diamond" if halo == "traced" else halo
+        extra = cell_halo(graph, g, shape) if shape else ()
+        traced = extra if halo == "traced" else ()
+        cell = cell_circuit(circuit, g, extra)
+        n_cell[g.site] = cell.num_qubits
+        layout = [g.data_qubit, *g.address_qubits, *extra]
+        for basis in mode.bases:
+            keys.append((g.site, basis))
+            jobs.append((_measured(cell, [0], basis), layout, traced))
+    counts = {g.site: {} for g in groups}
+    for (site, basis), c in zip(keys, _run(sampler, jobs, shots, opt_level), strict=True):
+        counts[site][basis] = c
+    return counts, n_cell
+
+
 def decode(
     circuit: QuantumCircuit,
     encoding: Encoding,
@@ -386,6 +407,7 @@ def decode(
     shots: int = 4096,
     optimization_level: int = 1,
     return_counts: bool = False,
+    executor=None,
 ):
     """Measure ``circuit`` on ``sampler`` and recover the encoded field(s).
 
@@ -410,6 +432,11 @@ def decode(
     reconstructions of the QCAT hardware experiment) were made with bare cells,
     i.e. ``halo=None``; pass it explicitly to reproduce them. The default
     ``"traced"`` was added afterwards and gives slightly different noisy results.
+
+    ``executor`` (per group only): a ``concurrent.futures`` Thread- or
+    ProcessPoolExecutor, kept alive across calls. The cells are split into one
+    chunk per worker and cut, transpiled and run in parallel. Each chunk reuses
+    ``sampler``'s seed, so pass a sampler with ``seed=None`` for independent shots.
     """
     if circuit.num_clbits:
         raise ValueError(
@@ -428,23 +455,23 @@ def decode(
     if per_group:
         if halo == "traced":
             _check_traceable(sampler)
-        keys, jobs = [], []
-        n_cell = {}
-        for g in graph.groups:
-            shape = "diamond" if halo == "traced" else halo
-            extra = cell_halo(graph, g, shape) if shape else ()
-            traced = extra if halo == "traced" else ()
-            cell = cell_circuit(circuit, g, extra)
-            n_cell[g.site] = cell.num_qubits
-            layout = [g.data_qubit, *g.address_qubits, *extra]
-            for basis in mode.bases:
-                keys.append((g.site, basis))
-                jobs.append((_measured(cell, [0], basis), layout, traced))
-        every = _run(sampler, jobs, shots, optimization_level)
-
-        counts = {g.site: {} for g in graph.groups}
-        for (site, basis), c in zip(keys, every, strict=True):
-            counts[site][basis] = c
+        args = (mode.name, halo, sampler, shots, optimization_level)
+        if executor is None:
+            counts, n_cell = _cell_counts(circuit, graph, graph.groups, *args)
+        else:
+            # one chunk per worker via the private _max_workers that
+            # Thread/ProcessPoolExecutor both carry; pass a chunk count if needed
+            k = executor._max_workers
+            chunks = [graph.groups[i::k] for i in range(k) if graph.groups[i::k]]
+            futures = [
+                executor.submit(_cell_counts, circuit, graph, chunk, *args)
+                for chunk in chunks
+            ]
+            counts, n_cell = {}, {}
+            for f in futures:
+                c, n = f.result()
+                counts.update(c)
+                n_cell.update(n)
         packed = {}
         for g in graph.groups:
             packed.update(
