@@ -636,6 +636,22 @@ def test_decode_from_counts_unsampled_configuration():
         decode_from_counts(counts, enc, unsampled="drop")
 
 
+def test_executor_chunks_reproduce_the_sequential_decode(lattice):
+    from concurrent.futures import ThreadPoolExecutor
+
+    rng = np.random.default_rng(0)
+    x, y = rng.random(lattice.capacity), rng.random(lattice.capacity)
+    qc, enc = encode(lattice, x, y)
+    seq = decode(qc, enc, aer_sampler(lattice, seed=1), halo=None)
+    with ThreadPoolExecutor(1) as ex:  # one chunk: same jobs, same seed
+        par = decode(qc, enc, aer_sampler(lattice, seed=1), halo=None, executor=ex)
+    for a, b in zip(seq, par, strict=True):
+        np.testing.assert_array_equal(a, b)
+    with ThreadPoolExecutor(3) as ex:  # several chunks: every cell still decoded
+        got = decode(qc, enc, aer_sampler(lattice), halo=None, executor=ex)
+    assert all(np.isfinite(f).all() and f.shape == x.shape for f in got)
+
+
 def test_exact_sampling_matches_aer_and_refuses_noise(lattice):
     rng = np.random.default_rng(0)
     x, y = rng.random(lattice.capacity), rng.random(lattice.capacity)
@@ -648,3 +664,18 @@ def test_exact_sampling_matches_aer_and_refuses_noise(lattice):
         assert abs(np.abs(got_aer - want).mean() - np.abs(got_fast - want).mean()) < 0.01
     with pytest.raises(ValueError, match="exact_sampling"):
         decode(qc, enc, aer_sampler(lattice), exact_sampling=True)  # halo="traced"
+
+
+def test_exact_sampling_composes_with_an_executor(lattice):
+    from concurrent.futures import ThreadPoolExecutor
+
+    rng = np.random.default_rng(0)
+    x, y = rng.random(lattice.capacity), rng.random(lattice.capacity)
+    qc, enc = encode(lattice, x, y)
+    kw = {"shots": 8192, "halo": None, "exact_sampling": True}
+    with ThreadPoolExecutor(3) as ex:
+        a1, b1 = decode(qc, enc, aer_sampler(lattice), executor=ex, seed=5, **kw)
+        a2, b2 = decode(qc, enc, aer_sampler(lattice), executor=ex, seed=5, **kw)
+    np.testing.assert_array_equal(a1, a2)  # chunk seeds derive from seed
+    np.testing.assert_array_equal(b1, b2)
+    assert np.abs(a1 - x).mean() < 0.05 and np.abs(b1 - y).mean() < 0.05

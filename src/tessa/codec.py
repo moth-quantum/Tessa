@@ -390,6 +390,34 @@ def _sample_exact(jobs, shots, seed) -> list[dict]:
     return out
 
 
+def _cell_counts(
+    circuit, graph, groups, mode, halo, sampler, shots, opt_level, exact=False, seed=None
+):
+    """Cut, measure and run ``groups``' cells: ``({site: {basis: counts}},
+    {site: n_cell_qubits})``. Module-level so a process pool can run a chunk."""
+    mode = get_mode(mode)
+    keys, jobs, n_cell = [], [], {}
+    for g in groups:
+        shape = "diamond" if halo == "traced" else halo
+        extra = cell_halo(graph, g, shape) if shape else ()
+        traced = extra if halo == "traced" else ()
+        cell = cell_circuit(circuit, g, extra)
+        n_cell[g.site] = cell.num_qubits
+        layout = [g.data_qubit, *g.address_qubits, *extra]
+        for basis in mode.bases:
+            keys.append((g.site, basis))
+            jobs.append((_measured(cell, [0], basis), layout, traced))
+    counts = {g.site: {} for g in groups}
+    every = (
+        _sample_exact(jobs, shots, seed)
+        if exact
+        else _run(sampler, jobs, shots, opt_level)
+    )
+    for (site, basis), c in zip(keys, every, strict=True):
+        counts[site][basis] = c
+    return counts, n_cell
+
+
 def decode(
     circuit: QuantumCircuit,
     encoding: Encoding,
@@ -400,6 +428,7 @@ def decode(
     shots: int = 4096,
     optimization_level: int = 1,
     return_counts: bool = False,
+    executor=None,
     exact_sampling: bool = False,
     seed: int | None = None,
 ):
@@ -429,7 +458,13 @@ def decode(
 
     ``exact_sampling=True`` (noiseless sampler, ``per_group=True``, ``halo=None``)
     skips transpile and Aer: each cell's exact probabilities are sampled with
-    numpy (``seed``), the same shot distribution about 10x faster.
+    numpy (``seed``), the same shot distribution about 7x faster. It composes
+    with ``executor``; each chunk then gets its own seed spawned from ``seed``.
+
+    ``executor`` (per group only): a ``concurrent.futures`` Thread- or
+    ProcessPoolExecutor, kept alive across calls. The cells are split into one
+    chunk per worker and cut, transpiled and run in parallel. Each chunk reuses
+    ``sampler``'s seed, so pass a sampler with ``seed=None`` for independent shots.
     """
     if circuit.num_clbits:
         raise ValueError(
@@ -457,26 +492,28 @@ def decode(
     if per_group:
         if halo == "traced":
             _check_traceable(sampler)
-        keys, jobs = [], []
-        n_cell = {}
-        for g in graph.groups:
-            shape = "diamond" if halo == "traced" else halo
-            extra = cell_halo(graph, g, shape) if shape else ()
-            traced = extra if halo == "traced" else ()
-            cell = cell_circuit(circuit, g, extra)
-            n_cell[g.site] = cell.num_qubits
-            layout = [g.data_qubit, *g.address_qubits, *extra]
-            for basis in mode.bases:
-                keys.append((g.site, basis))
-                jobs.append((_measured(cell, [0], basis), layout, traced))
-        if exact_sampling:
-            every = _sample_exact(jobs, shots, seed)
+        args = (mode.name, halo, sampler, shots, optimization_level)
+        if executor is None:
+            counts, n_cell = _cell_counts(
+                circuit, graph, graph.groups, *args, exact_sampling, seed
+            )
         else:
-            every = _run(sampler, jobs, shots, optimization_level)
-
-        counts = {g.site: {} for g in graph.groups}
-        for (site, basis), c in zip(keys, every, strict=True):
-            counts[site][basis] = c
+            # one chunk per worker via the private _max_workers that
+            # Thread/ProcessPoolExecutor both carry; pass a chunk count if needed
+            k = executor._max_workers
+            chunks = [graph.groups[i::k] for i in range(k) if graph.groups[i::k]]
+            seeds = np.random.SeedSequence(seed).spawn(len(chunks))  # independent
+            futures = [
+                executor.submit(
+                    _cell_counts, circuit, graph, chunk, *args, exact_sampling, s
+                )
+                for chunk, s in zip(chunks, seeds, strict=True)
+            ]
+            counts, n_cell = {}, {}
+            for f in futures:
+                c, n = f.result()
+                counts.update(c)
+                n_cell.update(n)
         packed = {}
         for g in graph.groups:
             packed.update(
